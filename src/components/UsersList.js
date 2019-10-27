@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import UserCard from './UserCard';
 
 class UsersList extends React.Component {
     render() {
@@ -7,8 +8,7 @@ class UsersList extends React.Component {
             <div>
                 <p>you have {this.props.users.length} team members</p>
                 {this.props.users.map((user) => (
-                    <div key={user.id}>{user.firstName} </div>
-
+                    <UserCard key={user.id} user={user}></UserCard>
                 ))}
         </div>
         );
