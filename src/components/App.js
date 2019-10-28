@@ -1,13 +1,19 @@
 import React from 'react';
-import { Container } from 'semantic-ui-react'
 import UsersList from './UsersList'
 
 
 const App = () => {
     return (
-        <Container>
-            <UsersList />
-        </Container>
+        <div>
+            <h1>Contacts</h1>
+            <div>
+            <div className="row">
+                <div>
+                <UsersList />
+                </div>
+            </div>
+            </div>
+        </div>
     )
 };
 
