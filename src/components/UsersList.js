@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Icon } from 'semantic-ui-react'
 import UserCard from './UserCard';
+import Pluralize from 'react-pluralize'
 import { Link } from "react-router-dom";
 import { selectUser } from '../actions'
 import { getUsers } from "../actions";
@@ -15,7 +16,7 @@ class UsersList extends React.Component {
         const { users } = this.props;
         return (
             <div>
-                <div className="ui center aligned icon header">You have {users.length} team members </div>
+                <div className="ui center aligned icon header">You have <Pluralize singular={'team member'} plural={'team members'} count={users.length} /> </div>
                 <div className="ui right aligned header"><Link to={`users/new/`}><Icon link name='large plus' /></Link></div>
                 {users.map((user) => (
                     <UserCard

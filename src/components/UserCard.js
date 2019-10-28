@@ -11,7 +11,7 @@ const UserCard = (props) => (
         <div className="content">
             <Link to={`user/edit/${props.user.id}`} >
                 <Header as='p' floated='right'>
-                    {props.user.firstName} {props.user.lastName}
+                    {props.user.firstName} {props.user.lastName} {props.user.userType === 'admin' ? '(admin)' : ''}
                 </Header>
             </Link>
 
