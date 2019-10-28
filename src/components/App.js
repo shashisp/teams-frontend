@@ -4,14 +4,12 @@ import UsersList from './UsersList'
 
 const App = () => {
     return (
-        <div>
-            <h1>Contacts</h1>
+        <div className="ui container comments">
+            <h1>Team Members</h1>
             <div>
-            <div className="row">
-                <div>
-                <UsersList />
+                <div className="comment">
+                    <UsersList />
                 </div>
-            </div>
             </div>
         </div>
     )
