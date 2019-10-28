@@ -1,14 +1,16 @@
 import { combineReducers } from 'redux';
+import { GET_USERS, DELETE_USER, ADD_USER, SELECT_USER, EDIT_USER } from "../actions/types";
+import { reducer as formReducer } from 'redux-form';
 
-const usersReducer = () => {
-    return [
+const initalState = {
+    users: [
         {
             "id": 1,
             "firstName": "Adrien",
             "lastName": "Olczak",
             "phone": "415-210-1619",
             "email": "adrien@instawork.com",
-            "is_admin": true
+            "userType": "admin"
         },
         {
             "id": 2,
@@ -16,7 +18,7 @@ const usersReducer = () => {
             "lastName": "Pham",
             "phone": "415-210-1619",
             "email": "charlene@instawork.com",
-            "is_admin": false
+            "userType": "regular"
         },
         {
             "id": 3,
@@ -24,28 +26,63 @@ const usersReducer = () => {
             "lastName": "Mach",
             "phone": "415-210-1619",
             "email": "benson@instawork.com",
-            "is_admin": false
+            "userType": "regular"
         },
         {
             "id": 4,
             "firstName": "Dan",
             "lastName": "Petrie",
             "phone": "415-210-1619",
-            "email": "adrien@instawork.com",
-            "is_admin": false
+            "email": "dan@instawork.com",
+            "userType": "regular"
         }
-    ];
+    ],
+    user: {}
 };
 
 
-const selectedUserReducer = (user = null, action) => {
-    if (action.type === 'USER_SELECTED') {
-        return action.payload
+const usersReducers = (state = initalState, action) => {
+    switch (action.type) {
+        case GET_USERS:
+            return {
+                ...state,
+                users: [...state.users]
+            }
+        case SELECT_USER:
+            return {
+                ...state,
+                user: action.payload
+            }
+        case ADD_USER:
+            return {
+                
+                ...state,
+                users: [...state.users, action.payload]
+            };
+        case EDIT_USER:
+            return {
+                ...state,
+                users: state.users.map(user =>
+                    user.id === action.payload.id
+                        ? (user = action.payload)
+                        : user
+                )
+            }
+        case DELETE_USER:
+            return {
+                ...state,
+                users: state.users.filter(
+                    user => user.id !== action.payload
+                )
+
+            }
+        default:
+            return state;
     }
-    return user
+
 };
 
 export default combineReducers({
-    users: usersReducer,
-    user: selectedUserReducer,
+    users: usersReducers,
+    form: formReducer,
 });
