@@ -35,8 +35,7 @@ class EditUser extends React.Component {
 
 
 const mapStateToProps = (state, ownProps) => {
-    console.log(state);
-    return { user: state.users.users[ownProps.match.params.id]};
+    return { user: state.users.users[ownProps.match.params.id-1]};
 }
   
   export default connect(
