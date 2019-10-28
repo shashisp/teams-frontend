@@ -5,7 +5,6 @@ import UsersList from './UsersList'
 const App = () => {
     return (
         <div className="ui container comments">
-            <h1>Team Members</h1>
             <div>
                 <div className="comment">
                     <UsersList />

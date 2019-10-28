@@ -1,11 +1,12 @@
 import React from 'react'
 import { Divider, Header, Image, Segment } from 'semantic-ui-react'
 import { Link } from "react-router-dom";
+import faker from 'faker';
 
 const UserCard = (props) => (
-    <Segment>
+    <div className="ui raised very padded segment">
         <a href="" className="avatar">
-            <img alt src=""></img>
+            <img alt="avatar" src={faker.image.avatar()} />
         </a>
         <div className="content">
             <Link to={`user/edit/${props.user.id}`} >
@@ -15,12 +16,17 @@ const UserCard = (props) => (
             </Link>
 
             <div className="metadata">
-                {props.user.phone} {props.user.email}
+                <span className="phone">
+                    {props.user.phone}
+                </span>
+                <span className="email">
+                    {props.user.email}
+                </span>
 
             </div>
 
         </div>
-    </Segment>
+    </div>
 )
 
 export default UserCard;

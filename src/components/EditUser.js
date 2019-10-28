@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { editUser, selectUser, deleteUser } from "../actions";
+import { Divider, Header, Image, Segment } from 'semantic-ui-react'
 import UserForm from "./UserForm";
 
 class EditUser extends React.Component {
@@ -24,10 +25,10 @@ class EditUser extends React.Component {
             return <div>Loading ...</div>;
         }
         return (
-            <div>
-                <h3>Edit user</h3>
+            <div className="ui raised very padded text container segment">
+                <h2 className="ui header">Edit user</h2>
                 <UserForm initialValues={this.props.user} onSubmit={this.onSubmit} />
-                <button type="submit" onClick={this.deleteUser} className="btn btn-danger">delete</button>
+                <button type="submit" onClick={this.deleteUser} className="ui negative basic button">Delete</button>
             </div>
         );
     }

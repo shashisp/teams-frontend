@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 class UserForm extends React.Component {
     renderField(field) {
         const { meta: { touched, error } } = field;
-        const className = `form-group ${touched && error ? "has-danger" : ""}`;
+        const className = `ui-input ${touched && error ? "error" : ""}`;
 
         return (
             <div>
                 <div className={className}>
                     <label>{field.label}</label>
-                    <input className="form-control" type="text" {...field.input} />
+                    <input className="ui-input" type="text" {...field.input} />
                     <div className="text-help">
                         {touched ? error : ""}
                     </div>
@@ -26,46 +26,53 @@ class UserForm extends React.Component {
     render() {
         const { handleSubmit } = this.props;
         return (
-            <div className="app ui container">
-            <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-                <Field
-                    label="First Name"
-                    name="firstName"
-                    component={this.renderField}
-                />
-                <Field
-                    label="Last Name"
-                    name="lastName"
-                    component={this.renderField}
-                />
-                <Field
-                    label="Email"
-                    name="email"
-                    component={this.renderField}
-                />
-                <Field
-                    label="Phone"
-                    name="phone"
-                    component={this.renderField}
-                />
-                <div>
-                    <label>Role</label>
+            <div className="ui container">
+                <form className="ui form" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
+                    <Field
+                        label="First Name"
+                        name="firstName"
+                        type="text"
+                        className="field"
+                        component={this.renderField}
+                    />
+                    <br/>
+                    <Field
+                        label="Last Name"
+                        name="lastName"
+                        className="field"
+                        component={this.renderField}
+                    />
+                    <br/>
+                    <Field
+                        label="Email"
+                        name="email"
+                        className="field"
+                        component={this.renderField}
+                    />
+                    <Field
+                        label="Phone"
+                        name="phone"
+                        className="field"
+                        component={this.renderField}
+                    />
                     <div>
-                        <label>
-                            <Field name="userType" component="input" type="radio" value="admin" />
-                            {' '}
-                            Admin
+                        <label>Role</label>
+                        <div>
+                            <label>
+                                <Field name="userType" className="field" component="input" type="radio" value="admin" />
+                                {' '}
+                                Admin
                     </label>
-                        <label>
-                            <Field name="userType" component="input" type="radio" value="regular" />
-                            {' '}
-                            Regular
+                            <label>
+                                <Field name="userType" className="field" component="input" type="radio" value="regular" />
+                                {' '}
+                                Regular
                     </label>
+                        </div>
                     </div>
-                </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
-                <Link to="/" className="btn btn-danger">Cancel</Link>
-            </form>
+                    <button type="submit" className="ui primary button">Submit</button>
+                    <Link to="/" className="ui primary basic button">Cancel</Link>
+                </form>
             </div>
         );
     }

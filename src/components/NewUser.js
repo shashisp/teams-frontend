@@ -14,8 +14,8 @@ class NewUser extends React.Component {
 
     render() {
         return (
-            <div>
-                <h3>Create new user</h3>
+            <div className="ui raised very padded text container segment">
+                <h2 className="ui header">Create new user</h2>
             <UserForm onSubmit={this.onSubmit} />
             </div>
         );

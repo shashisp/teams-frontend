@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Header } from 'semantic-ui-react'
 import { Icon } from 'semantic-ui-react'
 import UserCard from './UserCard';
 import { Link } from "react-router-dom";
@@ -13,11 +12,11 @@ class UsersList extends React.Component {
     }
 
     render() {
-        console.log(this.props)
         const { users } = this.props;
         return (
             <div>
-                <Header>you have {users.length} team members <Link to={`users/new/`}><Icon link name='plus' /></Link> </Header>
+                <div className="ui center aligned icon header">You have {users.length} team members </div>
+                <div className="ui right aligned header"><Link to={`users/new/`}><Icon link name='large plus' /></Link></div>
                 {users.map((user) => (
                     <UserCard
                         onClick={() => selectUser(user)}
