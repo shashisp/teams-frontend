@@ -15,7 +15,6 @@ You will also see any lint errors in the console.
 ## Other packages used:
 - [Redux-forms](https://github.com/redux-form/redux-form)
 - [React-router-dom](https://reacttraining.com/react-router/web/guides/quick-start)
-- [React-semantic-ui](https://react.semantic-ui.com/) (only used 1-2 components)
 
 
 ## Demo:
