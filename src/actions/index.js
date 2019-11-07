@@ -29,15 +29,12 @@ export const getUsers = () => {
     }
   };
 
-  let previousId = 4;
+
   export const addUser = (user) => {
-    const id = previousId + 1;
-    user.id = id;
     const action = {
       type: ADD_USER,
       payload: user
     };
-    previousId = id;
     return action;
   };
   

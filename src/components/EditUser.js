@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { editUser, selectUser, deleteUser } from "../actions";
-import { Divider, Header, Image, Segment } from 'semantic-ui-react'
 import UserForm from "./UserForm";
 
 class EditUser extends React.Component {
